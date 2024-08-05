@@ -2,6 +2,8 @@
 *.local
 config.toml
 
+agents/diet_plan*
+
 *test.csv
 # IntelliJ project files
 .idea

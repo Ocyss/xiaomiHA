@@ -3,6 +3,7 @@ package agents
 import (
 	"bytes"
 	"fmt"
+	agentData "github.com/Ocyss/xiaomiHA/agents/data"
 	"github.com/Ocyss/xiaomiHA/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/tkrajina/typescriptify-golang-structs/typescriptify"
@@ -80,6 +81,10 @@ type SystemAgentOptions struct {
 
 type Agent interface {
 	SystemAgentOptions() *SystemAgentOptions
+}
+type AgentCsv interface {
+	Agent
+	GenCsvFile() ([]*agentData.CsvData, error)
 }
 
 func SystemAgent(agent Agent) (string, error) {

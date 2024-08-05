@@ -23,6 +23,7 @@ func main() {
 				Location: time.Local,
 			},
 		})
+
 	if err != nil {
 		log.Fatal(err)
 	}

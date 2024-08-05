@@ -5,7 +5,6 @@ import (
 	"github.com/Ocyss/xiaomiHA/utils"
 	"github.com/go-resty/resty/v2"
 	"github.com/sashabaranov/go-openai/jsonschema"
-	log "github.com/sirupsen/logrus"
 	"github.com/tidwall/gjson"
 )
 
@@ -18,7 +17,6 @@ func WeatherTool(args string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("获取天气失败: %v", err)
 	}
-	log.Errorln(res.String())
 	return gjson.GetBytes(res.Body(), "hourly").String(), nil
 }
 
