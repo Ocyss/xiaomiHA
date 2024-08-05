@@ -10,15 +10,15 @@ const TableNameSportReport = "sport_report"
 type SportReport struct {
 	Sid             string  `gorm:"column:sid;type:TEXT;primaryKey" json:"sid"`
 	Key             string  `gorm:"column:key;type:TEXT;not null" json:"key"`
-	Time            int32   `gorm:"column:time;type:INTEGER;not null" json:"time"`
+	Time            int64   `gorm:"column:time;type:INTEGER;not null" json:"time"`
 	Category        *string `gorm:"column:category;type:TEXT" json:"category"`
-	ZoneOffsetInSec int32   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
+	ZoneOffsetInSec int64   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
 	ZoneName        *string `gorm:"column:zoneName;type:TEXT" json:"zoneName"`
 	Value           *string `gorm:"column:value;type:TEXT" json:"value"`
-	TimeIn0Tz       int32   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
-	IsUpload        int32   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
-	IsDeleted       int32   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
-	OfflineCounted  int32   `gorm:"column:offlineCounted;type:INTEGER;not null" json:"offlineCounted"`
+	TimeIn0Tz       int64   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
+	IsUpload        int64   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
+	IsDeleted       int64   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
+	OfflineCounted  int64   `gorm:"column:offlineCounted;type:INTEGER;not null" json:"offlineCounted"`
 }
 
 // TableName SportReport's table name

@@ -29,12 +29,12 @@ func newDailyReport(db *gorm.DB, opts ...gen.DOOption) dailyReport {
 	_dailyReport.ALL = field.NewAsterisk(tableName)
 	_dailyReport.Sid = field.NewString(tableName, "sid")
 	_dailyReport.DataType = field.NewString(tableName, "dataType")
-	_dailyReport.UpdateTime = field.NewInt32(tableName, "updateTime")
-	_dailyReport.TimeInZero = field.NewInt32(tableName, "timeInZero")
+	_dailyReport.UpdateTime = field.NewInt64(tableName, "updateTime")
+	_dailyReport.TimeInZero = field.NewInt64(tableName, "timeInZero")
 	_dailyReport.ViewTag = field.NewString(tableName, "viewTag")
 	_dailyReport.Value = field.NewString(tableName, "value")
-	_dailyReport.IsUpload = field.NewInt32(tableName, "isUpload")
-	_dailyReport.IsDeleted = field.NewInt32(tableName, "isDeleted")
+	_dailyReport.IsUpload = field.NewInt64(tableName, "isUpload")
+	_dailyReport.IsDeleted = field.NewInt64(tableName, "isDeleted")
 
 	_dailyReport.fillFieldMap()
 
@@ -47,12 +47,12 @@ type dailyReport struct {
 	ALL        field.Asterisk
 	Sid        field.String
 	DataType   field.String
-	UpdateTime field.Int32
-	TimeInZero field.Int32
+	UpdateTime field.Int64
+	TimeInZero field.Int64
 	ViewTag    field.String
 	Value      field.String
-	IsUpload   field.Int32
-	IsDeleted  field.Int32
+	IsUpload   field.Int64
+	IsDeleted  field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -71,12 +71,12 @@ func (d *dailyReport) updateTableName(table string) *dailyReport {
 	d.ALL = field.NewAsterisk(table)
 	d.Sid = field.NewString(table, "sid")
 	d.DataType = field.NewString(table, "dataType")
-	d.UpdateTime = field.NewInt32(table, "updateTime")
-	d.TimeInZero = field.NewInt32(table, "timeInZero")
+	d.UpdateTime = field.NewInt64(table, "updateTime")
+	d.TimeInZero = field.NewInt64(table, "timeInZero")
 	d.ViewTag = field.NewString(table, "viewTag")
 	d.Value = field.NewString(table, "value")
-	d.IsUpload = field.NewInt32(table, "isUpload")
-	d.IsDeleted = field.NewInt32(table, "isDeleted")
+	d.IsUpload = field.NewInt64(table, "isUpload")
+	d.IsDeleted = field.NewInt64(table, "isDeleted")
 
 	d.fillFieldMap()
 

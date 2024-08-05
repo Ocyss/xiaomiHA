@@ -10,12 +10,12 @@ const TableNameVitalityRecord = "vitality_record"
 type VitalityRecord struct {
 	Key             string  `gorm:"column:key;type:TEXT;primaryKey" json:"key"`
 	Sid             string  `gorm:"column:sid;type:TEXT;not null" json:"sid"`
-	Time            int32   `gorm:"column:time;type:INTEGER;primaryKey" json:"time"`
-	ZoneOffsetInSec int32   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
+	Time            int64   `gorm:"column:time;type:INTEGER;primaryKey" json:"time"`
+	ZoneOffsetInSec int64   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
 	ZoneName        *string `gorm:"column:zoneName;type:TEXT" json:"zoneName"`
-	TimeIn0Tz       int32   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
-	IsUpload        int32   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
-	IsDeleted       int32   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
+	TimeIn0Tz       int64   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
+	IsUpload        int64   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
+	IsDeleted       int64   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
 	Value           *string `gorm:"column:value;type:TEXT" json:"value"`
 }
 

@@ -1,5 +1,8 @@
 /temp/
+*.local
+config.toml
 
+*test.csv
 # IntelliJ project files
 .idea
 *.iml

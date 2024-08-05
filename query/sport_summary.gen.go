@@ -29,8 +29,8 @@ func newSportSummary(db *gorm.DB, opts ...gen.DOOption) sportSummary {
 	_sportSummary.ALL = field.NewAsterisk(tableName)
 	_sportSummary.Category = field.NewString(tableName, "category")
 	_sportSummary.Dimen = field.NewString(tableName, "dimen")
-	_sportSummary.TimeIn0TZ = field.NewInt32(tableName, "timeIn0TZ")
-	_sportSummary.ZoneOffsetSec = field.NewInt32(tableName, "zoneOffsetSec")
+	_sportSummary.TimeIn0TZ = field.NewInt64(tableName, "timeIn0TZ")
+	_sportSummary.ZoneOffsetSec = field.NewInt64(tableName, "zoneOffsetSec")
 	_sportSummary.Summary = field.NewString(tableName, "summary")
 
 	_sportSummary.fillFieldMap()
@@ -44,8 +44,8 @@ type sportSummary struct {
 	ALL           field.Asterisk
 	Category      field.String
 	Dimen         field.String
-	TimeIn0TZ     field.Int32
-	ZoneOffsetSec field.Int32
+	TimeIn0TZ     field.Int64
+	ZoneOffsetSec field.Int64
 	Summary       field.String
 
 	fieldMap map[string]field.Expr
@@ -65,8 +65,8 @@ func (s *sportSummary) updateTableName(table string) *sportSummary {
 	s.ALL = field.NewAsterisk(table)
 	s.Category = field.NewString(table, "category")
 	s.Dimen = field.NewString(table, "dimen")
-	s.TimeIn0TZ = field.NewInt32(table, "timeIn0TZ")
-	s.ZoneOffsetSec = field.NewInt32(table, "zoneOffsetSec")
+	s.TimeIn0TZ = field.NewInt64(table, "timeIn0TZ")
+	s.ZoneOffsetSec = field.NewInt64(table, "zoneOffsetSec")
 	s.Summary = field.NewString(table, "summary")
 
 	s.fillFieldMap()

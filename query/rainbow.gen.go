@@ -27,9 +27,9 @@ func newRainbow(db *gorm.DB, opts ...gen.DOOption) rainbow {
 
 	tableName := _rainbow.rainbowDo.TableName()
 	_rainbow.ALL = field.NewAsterisk(tableName)
-	_rainbow.TimeInZero = field.NewInt32(tableName, "timeInZero")
+	_rainbow.TimeInZero = field.NewInt64(tableName, "timeInZero")
 	_rainbow.Value = field.NewString(tableName, "value")
-	_rainbow.IsUpload = field.NewInt32(tableName, "isUpload")
+	_rainbow.IsUpload = field.NewInt64(tableName, "isUpload")
 
 	_rainbow.fillFieldMap()
 
@@ -40,9 +40,9 @@ type rainbow struct {
 	rainbowDo
 
 	ALL        field.Asterisk
-	TimeInZero field.Int32
+	TimeInZero field.Int64
 	Value      field.String
-	IsUpload   field.Int32
+	IsUpload   field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -59,9 +59,9 @@ func (r rainbow) As(alias string) *rainbow {
 
 func (r *rainbow) updateTableName(table string) *rainbow {
 	r.ALL = field.NewAsterisk(table)
-	r.TimeInZero = field.NewInt32(table, "timeInZero")
+	r.TimeInZero = field.NewInt64(table, "timeInZero")
 	r.Value = field.NewString(table, "value")
-	r.IsUpload = field.NewInt32(table, "isUpload")
+	r.IsUpload = field.NewInt64(table, "isUpload")
 
 	r.fillFieldMap()
 

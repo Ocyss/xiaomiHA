@@ -33,26 +33,11 @@ type TestAgent struct {
 	Sex  string `json:"sex"`
 }
 
-func (t *TestAgent) TimeWindow() string {
-	return "20分钟内"
-}
-
-func (t *TestAgent) Skills() []string {
-	return []string{"skill1", "skill2", "skill3"}
-}
-
-func (t *TestAgent) Goals() []string {
-	return []string{"goal1", "goal2"}
-}
-
-func (t *TestAgent) Constrains() []string {
-	return nil
-}
-
-func (t *TestAgent) Workflow() []string {
-	return []string{"work1", "work2"}
-}
-
-func (t *TestAgent) OutputFormat() any {
-	return t
+func (t *TestAgent) SystemAgentOptions() *SystemAgentOptions {
+	return &SystemAgentOptions{
+		Skills:     []string{"skill1", "skill2", "skill3"},
+		Goals:      []string{"goal1", "goal2"},
+		Workflow:   []string{"work1", "work2"},
+		TimeWindow: "20分钟内",
+	}
 }

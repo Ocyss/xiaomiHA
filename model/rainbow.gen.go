@@ -8,9 +8,9 @@ const TableNameRainbow = "rainbow"
 
 // Rainbow mapped from table <rainbow>
 type Rainbow struct {
-	TimeInZero int32  `gorm:"column:timeInZero;type:INTEGER;primaryKey" json:"timeInZero"`
+	TimeInZero int64  `gorm:"column:timeInZero;type:INTEGER;primaryKey" json:"timeInZero"`
 	Value      string `gorm:"column:value;type:TEXT;not null" json:"value"`
-	IsUpload   int32  `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
+	IsUpload   int64  `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
 }
 
 // TableName Rainbow's table name

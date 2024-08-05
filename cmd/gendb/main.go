@@ -9,10 +9,25 @@ import (
 )
 
 // https://gorm.io/zh_CN/gen/database_to_structs.html#Quick-Start
+//type CommonMethod struct {
+//	Time int32
+//}
+//
+//func (m *CommonMethod) GetCsvRecords() ([]*CommonMethod, error) {
+//	var conds []gen.Condition
+//	if m.Time.Time != nil {
+//		conds = append(conds, query.TrainingLoadRecord.Time.Gte(*h.Time.Time))
+//	} else {
+//		conds = append(conds, query.TrainingLoadRecord.Time.Between(*h.Time.StartTime, *h.Time.EndTime))
+//	}
+//	records, err := query.TrainingLoadRecord.Order(query.TrainingLoadRecord.Time.Desc()).Where(conds...).Find()
+//	return records, err
+//}
 
 func main() {
-	genModels(model.DataTableNames, model.Db)
 	genModels(model.SummaryTableNames, model.SDb)
+	// TODO: 后面会覆盖掉前面的 gen 函数
+	genModels(model.DataTableNames, model.Db)
 }
 
 func genModels(tableNames []string, db *gorm.DB) {
@@ -34,7 +49,12 @@ func genModels(tableNames []string, db *gorm.DB) {
 	})
 
 	g.UseDB(db) // reuse your gorm db
-
+	g.WithOpts(gen.FieldModify(func(field gen.Field) gen.Field {
+		if field.Type == "int32" {
+			field.Type = "int64"
+		}
+		return field
+	}))
 	// Generate basic type-safe DAO API for struct `model.User` following conventions
 	table := make([]any, 0, len(tableNames))
 	for _, v := range tableNames {
@@ -44,6 +64,7 @@ func genModels(tableNames []string, db *gorm.DB) {
 		// Generate structs from all tables of current database
 		table...,
 	)
+
 	// Generate the code
 	g.Execute()
 }

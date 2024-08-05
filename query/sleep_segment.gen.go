@@ -29,14 +29,14 @@ func newSleepSegment(db *gorm.DB, opts ...gen.DOOption) sleepSegment {
 	_sleepSegment.ALL = field.NewAsterisk(tableName)
 	_sleepSegment.Key = field.NewString(tableName, "key")
 	_sleepSegment.Sid = field.NewString(tableName, "sid")
-	_sleepSegment.Time = field.NewInt32(tableName, "time")
-	_sleepSegment.IsComplete = field.NewInt32(tableName, "isComplete")
+	_sleepSegment.Time = field.NewInt64(tableName, "time")
+	_sleepSegment.IsComplete = field.NewInt64(tableName, "isComplete")
 	_sleepSegment.Value = field.NewString(tableName, "value")
-	_sleepSegment.ZoneOffsetInSec = field.NewInt32(tableName, "zoneOffsetInSec")
+	_sleepSegment.ZoneOffsetInSec = field.NewInt64(tableName, "zoneOffsetInSec")
 	_sleepSegment.ZoneName = field.NewString(tableName, "zoneName")
-	_sleepSegment.TimeIn0Tz = field.NewInt32(tableName, "timeIn0Tz")
-	_sleepSegment.IsUpload = field.NewInt32(tableName, "isUpload")
-	_sleepSegment.IsDeleted = field.NewInt32(tableName, "isDeleted")
+	_sleepSegment.TimeIn0Tz = field.NewInt64(tableName, "timeIn0Tz")
+	_sleepSegment.IsUpload = field.NewInt64(tableName, "isUpload")
+	_sleepSegment.IsDeleted = field.NewInt64(tableName, "isDeleted")
 
 	_sleepSegment.fillFieldMap()
 
@@ -49,14 +49,14 @@ type sleepSegment struct {
 	ALL             field.Asterisk
 	Key             field.String
 	Sid             field.String
-	Time            field.Int32
-	IsComplete      field.Int32
+	Time            field.Int64
+	IsComplete      field.Int64
 	Value           field.String
-	ZoneOffsetInSec field.Int32
+	ZoneOffsetInSec field.Int64
 	ZoneName        field.String
-	TimeIn0Tz       field.Int32
-	IsUpload        field.Int32
-	IsDeleted       field.Int32
+	TimeIn0Tz       field.Int64
+	IsUpload        field.Int64
+	IsDeleted       field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -75,14 +75,14 @@ func (s *sleepSegment) updateTableName(table string) *sleepSegment {
 	s.ALL = field.NewAsterisk(table)
 	s.Key = field.NewString(table, "key")
 	s.Sid = field.NewString(table, "sid")
-	s.Time = field.NewInt32(table, "time")
-	s.IsComplete = field.NewInt32(table, "isComplete")
+	s.Time = field.NewInt64(table, "time")
+	s.IsComplete = field.NewInt64(table, "isComplete")
 	s.Value = field.NewString(table, "value")
-	s.ZoneOffsetInSec = field.NewInt32(table, "zoneOffsetInSec")
+	s.ZoneOffsetInSec = field.NewInt64(table, "zoneOffsetInSec")
 	s.ZoneName = field.NewString(table, "zoneName")
-	s.TimeIn0Tz = field.NewInt32(table, "timeIn0Tz")
-	s.IsUpload = field.NewInt32(table, "isUpload")
-	s.IsDeleted = field.NewInt32(table, "isDeleted")
+	s.TimeIn0Tz = field.NewInt64(table, "timeIn0Tz")
+	s.IsUpload = field.NewInt64(table, "isUpload")
+	s.IsDeleted = field.NewInt64(table, "isDeleted")
 
 	s.fillFieldMap()
 

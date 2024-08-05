@@ -29,15 +29,15 @@ func newSportReport(db *gorm.DB, opts ...gen.DOOption) sportReport {
 	_sportReport.ALL = field.NewAsterisk(tableName)
 	_sportReport.Sid = field.NewString(tableName, "sid")
 	_sportReport.Key = field.NewString(tableName, "key")
-	_sportReport.Time = field.NewInt32(tableName, "time")
+	_sportReport.Time = field.NewInt64(tableName, "time")
 	_sportReport.Category = field.NewString(tableName, "category")
-	_sportReport.ZoneOffsetInSec = field.NewInt32(tableName, "zoneOffsetInSec")
+	_sportReport.ZoneOffsetInSec = field.NewInt64(tableName, "zoneOffsetInSec")
 	_sportReport.ZoneName = field.NewString(tableName, "zoneName")
 	_sportReport.Value = field.NewString(tableName, "value")
-	_sportReport.TimeIn0Tz = field.NewInt32(tableName, "timeIn0Tz")
-	_sportReport.IsUpload = field.NewInt32(tableName, "isUpload")
-	_sportReport.IsDeleted = field.NewInt32(tableName, "isDeleted")
-	_sportReport.OfflineCounted = field.NewInt32(tableName, "offlineCounted")
+	_sportReport.TimeIn0Tz = field.NewInt64(tableName, "timeIn0Tz")
+	_sportReport.IsUpload = field.NewInt64(tableName, "isUpload")
+	_sportReport.IsDeleted = field.NewInt64(tableName, "isDeleted")
+	_sportReport.OfflineCounted = field.NewInt64(tableName, "offlineCounted")
 
 	_sportReport.fillFieldMap()
 
@@ -50,15 +50,15 @@ type sportReport struct {
 	ALL             field.Asterisk
 	Sid             field.String
 	Key             field.String
-	Time            field.Int32
+	Time            field.Int64
 	Category        field.String
-	ZoneOffsetInSec field.Int32
+	ZoneOffsetInSec field.Int64
 	ZoneName        field.String
 	Value           field.String
-	TimeIn0Tz       field.Int32
-	IsUpload        field.Int32
-	IsDeleted       field.Int32
-	OfflineCounted  field.Int32
+	TimeIn0Tz       field.Int64
+	IsUpload        field.Int64
+	IsDeleted       field.Int64
+	OfflineCounted  field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -77,15 +77,15 @@ func (s *sportReport) updateTableName(table string) *sportReport {
 	s.ALL = field.NewAsterisk(table)
 	s.Sid = field.NewString(table, "sid")
 	s.Key = field.NewString(table, "key")
-	s.Time = field.NewInt32(table, "time")
+	s.Time = field.NewInt64(table, "time")
 	s.Category = field.NewString(table, "category")
-	s.ZoneOffsetInSec = field.NewInt32(table, "zoneOffsetInSec")
+	s.ZoneOffsetInSec = field.NewInt64(table, "zoneOffsetInSec")
 	s.ZoneName = field.NewString(table, "zoneName")
 	s.Value = field.NewString(table, "value")
-	s.TimeIn0Tz = field.NewInt32(table, "timeIn0Tz")
-	s.IsUpload = field.NewInt32(table, "isUpload")
-	s.IsDeleted = field.NewInt32(table, "isDeleted")
-	s.OfflineCounted = field.NewInt32(table, "offlineCounted")
+	s.TimeIn0Tz = field.NewInt64(table, "timeIn0Tz")
+	s.IsUpload = field.NewInt64(table, "isUpload")
+	s.IsDeleted = field.NewInt64(table, "isDeleted")
+	s.OfflineCounted = field.NewInt64(table, "offlineCounted")
 
 	s.fillFieldMap()
 

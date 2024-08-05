@@ -29,12 +29,12 @@ func newVitalityRecord(db *gorm.DB, opts ...gen.DOOption) vitalityRecord {
 	_vitalityRecord.ALL = field.NewAsterisk(tableName)
 	_vitalityRecord.Key = field.NewString(tableName, "key")
 	_vitalityRecord.Sid = field.NewString(tableName, "sid")
-	_vitalityRecord.Time = field.NewInt32(tableName, "time")
-	_vitalityRecord.ZoneOffsetInSec = field.NewInt32(tableName, "zoneOffsetInSec")
+	_vitalityRecord.Time = field.NewInt64(tableName, "time")
+	_vitalityRecord.ZoneOffsetInSec = field.NewInt64(tableName, "zoneOffsetInSec")
 	_vitalityRecord.ZoneName = field.NewString(tableName, "zoneName")
-	_vitalityRecord.TimeIn0Tz = field.NewInt32(tableName, "timeIn0Tz")
-	_vitalityRecord.IsUpload = field.NewInt32(tableName, "isUpload")
-	_vitalityRecord.IsDeleted = field.NewInt32(tableName, "isDeleted")
+	_vitalityRecord.TimeIn0Tz = field.NewInt64(tableName, "timeIn0Tz")
+	_vitalityRecord.IsUpload = field.NewInt64(tableName, "isUpload")
+	_vitalityRecord.IsDeleted = field.NewInt64(tableName, "isDeleted")
 	_vitalityRecord.Value = field.NewString(tableName, "value")
 
 	_vitalityRecord.fillFieldMap()
@@ -48,12 +48,12 @@ type vitalityRecord struct {
 	ALL             field.Asterisk
 	Key             field.String
 	Sid             field.String
-	Time            field.Int32
-	ZoneOffsetInSec field.Int32
+	Time            field.Int64
+	ZoneOffsetInSec field.Int64
 	ZoneName        field.String
-	TimeIn0Tz       field.Int32
-	IsUpload        field.Int32
-	IsDeleted       field.Int32
+	TimeIn0Tz       field.Int64
+	IsUpload        field.Int64
+	IsDeleted       field.Int64
 	Value           field.String
 
 	fieldMap map[string]field.Expr
@@ -73,12 +73,12 @@ func (v *vitalityRecord) updateTableName(table string) *vitalityRecord {
 	v.ALL = field.NewAsterisk(table)
 	v.Key = field.NewString(table, "key")
 	v.Sid = field.NewString(table, "sid")
-	v.Time = field.NewInt32(table, "time")
-	v.ZoneOffsetInSec = field.NewInt32(table, "zoneOffsetInSec")
+	v.Time = field.NewInt64(table, "time")
+	v.ZoneOffsetInSec = field.NewInt64(table, "zoneOffsetInSec")
 	v.ZoneName = field.NewString(table, "zoneName")
-	v.TimeIn0Tz = field.NewInt32(table, "timeIn0Tz")
-	v.IsUpload = field.NewInt32(table, "isUpload")
-	v.IsDeleted = field.NewInt32(table, "isDeleted")
+	v.TimeIn0Tz = field.NewInt64(table, "timeIn0Tz")
+	v.IsUpload = field.NewInt64(table, "isUpload")
+	v.IsDeleted = field.NewInt64(table, "isDeleted")
 	v.Value = field.NewString(table, "value")
 
 	v.fillFieldMap()

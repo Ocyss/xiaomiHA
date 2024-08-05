@@ -10,14 +10,14 @@ const TableNameSleepSegment = "sleep_segment"
 type SleepSegment struct {
 	Key             string  `gorm:"column:key;type:TEXT;primaryKey" json:"key"`
 	Sid             string  `gorm:"column:sid;type:TEXT;not null" json:"sid"`
-	Time            int32   `gorm:"column:time;type:INTEGER;not null" json:"time"`
-	IsComplete      int32   `gorm:"column:isComplete;type:INTEGER;not null" json:"isComplete"`
+	Time            int64   `gorm:"column:time;type:INTEGER;not null" json:"time"`
+	IsComplete      int64   `gorm:"column:isComplete;type:INTEGER;not null" json:"isComplete"`
 	Value           *string `gorm:"column:value;type:TEXT" json:"value"`
-	ZoneOffsetInSec int32   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
+	ZoneOffsetInSec int64   `gorm:"column:zoneOffsetInSec;type:INTEGER;not null" json:"zoneOffsetInSec"`
 	ZoneName        *string `gorm:"column:zoneName;type:TEXT" json:"zoneName"`
-	TimeIn0Tz       int32   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
-	IsUpload        int32   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
-	IsDeleted       int32   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
+	TimeIn0Tz       int64   `gorm:"column:timeIn0Tz;type:INTEGER;not null" json:"timeIn0Tz"`
+	IsUpload        int64   `gorm:"column:isUpload;type:INTEGER;not null" json:"isUpload"`
+	IsDeleted       int64   `gorm:"column:isDeleted;type:INTEGER;not null" json:"isDeleted"`
 }
 
 // TableName SleepSegment's table name

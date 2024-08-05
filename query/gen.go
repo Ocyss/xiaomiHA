@@ -16,44 +16,79 @@ import (
 )
 
 var (
-	Q            = new(Query)
-	DailyReport  *dailyReport
-	Rainbow      *rainbow
-	SportSummary *sportSummary
+	Q                  = new(Query)
+	CalorieRecord      *calorieRecord
+	HrRecord           *hrRecord
+	SleepSegment       *sleepSegment
+	Spo2Record         *spo2Record
+	SportReport        *sportReport
+	StepRecord         *stepRecord
+	StressRecord       *stressRecord
+	TrainingLoadRecord *trainingLoadRecord
+	VitalityRecord     *vitalityRecord
+	WeightItemRecord   *weightItemRecord
 )
 
 func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
 	*Q = *Use(db, opts...)
-	DailyReport = &Q.DailyReport
-	Rainbow = &Q.Rainbow
-	SportSummary = &Q.SportSummary
+	CalorieRecord = &Q.CalorieRecord
+	HrRecord = &Q.HrRecord
+	SleepSegment = &Q.SleepSegment
+	Spo2Record = &Q.Spo2Record
+	SportReport = &Q.SportReport
+	StepRecord = &Q.StepRecord
+	StressRecord = &Q.StressRecord
+	TrainingLoadRecord = &Q.TrainingLoadRecord
+	VitalityRecord = &Q.VitalityRecord
+	WeightItemRecord = &Q.WeightItemRecord
 }
 
 func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
 	return &Query{
-		db:           db,
-		DailyReport:  newDailyReport(db, opts...),
-		Rainbow:      newRainbow(db, opts...),
-		SportSummary: newSportSummary(db, opts...),
+		db:                 db,
+		CalorieRecord:      newCalorieRecord(db, opts...),
+		HrRecord:           newHrRecord(db, opts...),
+		SleepSegment:       newSleepSegment(db, opts...),
+		Spo2Record:         newSpo2Record(db, opts...),
+		SportReport:        newSportReport(db, opts...),
+		StepRecord:         newStepRecord(db, opts...),
+		StressRecord:       newStressRecord(db, opts...),
+		TrainingLoadRecord: newTrainingLoadRecord(db, opts...),
+		VitalityRecord:     newVitalityRecord(db, opts...),
+		WeightItemRecord:   newWeightItemRecord(db, opts...),
 	}
 }
 
 type Query struct {
 	db *gorm.DB
 
-	DailyReport  dailyReport
-	Rainbow      rainbow
-	SportSummary sportSummary
+	CalorieRecord      calorieRecord
+	HrRecord           hrRecord
+	SleepSegment       sleepSegment
+	Spo2Record         spo2Record
+	SportReport        sportReport
+	StepRecord         stepRecord
+	StressRecord       stressRecord
+	TrainingLoadRecord trainingLoadRecord
+	VitalityRecord     vitalityRecord
+	WeightItemRecord   weightItemRecord
 }
 
 func (q *Query) Available() bool { return q.db != nil }
 
 func (q *Query) clone(db *gorm.DB) *Query {
 	return &Query{
-		db:           db,
-		DailyReport:  q.DailyReport.clone(db),
-		Rainbow:      q.Rainbow.clone(db),
-		SportSummary: q.SportSummary.clone(db),
+		db:                 db,
+		CalorieRecord:      q.CalorieRecord.clone(db),
+		HrRecord:           q.HrRecord.clone(db),
+		SleepSegment:       q.SleepSegment.clone(db),
+		Spo2Record:         q.Spo2Record.clone(db),
+		SportReport:        q.SportReport.clone(db),
+		StepRecord:         q.StepRecord.clone(db),
+		StressRecord:       q.StressRecord.clone(db),
+		TrainingLoadRecord: q.TrainingLoadRecord.clone(db),
+		VitalityRecord:     q.VitalityRecord.clone(db),
+		WeightItemRecord:   q.WeightItemRecord.clone(db),
 	}
 }
 
@@ -67,24 +102,45 @@ func (q *Query) WriteDB() *Query {
 
 func (q *Query) ReplaceDB(db *gorm.DB) *Query {
 	return &Query{
-		db:           db,
-		DailyReport:  q.DailyReport.replaceDB(db),
-		Rainbow:      q.Rainbow.replaceDB(db),
-		SportSummary: q.SportSummary.replaceDB(db),
+		db:                 db,
+		CalorieRecord:      q.CalorieRecord.replaceDB(db),
+		HrRecord:           q.HrRecord.replaceDB(db),
+		SleepSegment:       q.SleepSegment.replaceDB(db),
+		Spo2Record:         q.Spo2Record.replaceDB(db),
+		SportReport:        q.SportReport.replaceDB(db),
+		StepRecord:         q.StepRecord.replaceDB(db),
+		StressRecord:       q.StressRecord.replaceDB(db),
+		TrainingLoadRecord: q.TrainingLoadRecord.replaceDB(db),
+		VitalityRecord:     q.VitalityRecord.replaceDB(db),
+		WeightItemRecord:   q.WeightItemRecord.replaceDB(db),
 	}
 }
 
 type queryCtx struct {
-	DailyReport  IDailyReportDo
-	Rainbow      IRainbowDo
-	SportSummary ISportSummaryDo
+	CalorieRecord      ICalorieRecordDo
+	HrRecord           IHrRecordDo
+	SleepSegment       ISleepSegmentDo
+	Spo2Record         ISpo2RecordDo
+	SportReport        ISportReportDo
+	StepRecord         IStepRecordDo
+	StressRecord       IStressRecordDo
+	TrainingLoadRecord ITrainingLoadRecordDo
+	VitalityRecord     IVitalityRecordDo
+	WeightItemRecord   IWeightItemRecordDo
 }
 
 func (q *Query) WithContext(ctx context.Context) *queryCtx {
 	return &queryCtx{
-		DailyReport:  q.DailyReport.WithContext(ctx),
-		Rainbow:      q.Rainbow.WithContext(ctx),
-		SportSummary: q.SportSummary.WithContext(ctx),
+		CalorieRecord:      q.CalorieRecord.WithContext(ctx),
+		HrRecord:           q.HrRecord.WithContext(ctx),
+		SleepSegment:       q.SleepSegment.WithContext(ctx),
+		Spo2Record:         q.Spo2Record.WithContext(ctx),
+		SportReport:        q.SportReport.WithContext(ctx),
+		StepRecord:         q.StepRecord.WithContext(ctx),
+		StressRecord:       q.StressRecord.WithContext(ctx),
+		TrainingLoadRecord: q.TrainingLoadRecord.WithContext(ctx),
+		VitalityRecord:     q.VitalityRecord.WithContext(ctx),
+		WeightItemRecord:   q.WeightItemRecord.WithContext(ctx),
 	}
 }
 

@@ -10,8 +10,8 @@ const TableNameSportSummary = "sport_summary"
 type SportSummary struct {
 	Category      string `gorm:"column:category;type:TEXT;primaryKey" json:"category"`
 	Dimen         string `gorm:"column:dimen;type:TEXT;not null" json:"dimen"`
-	TimeIn0TZ     int32  `gorm:"column:timeIn0TZ;type:INTEGER;not null" json:"timeIn0TZ"`
-	ZoneOffsetSec int32  `gorm:"column:zoneOffsetSec;type:INTEGER;not null" json:"zoneOffsetSec"`
+	TimeIn0TZ     int64  `gorm:"column:timeIn0TZ;type:INTEGER;not null" json:"timeIn0TZ"`
+	ZoneOffsetSec int64  `gorm:"column:zoneOffsetSec;type:INTEGER;not null" json:"zoneOffsetSec"`
 	Summary       string `gorm:"column:summary;type:TEXT;not null" json:"summary"`
 }
 

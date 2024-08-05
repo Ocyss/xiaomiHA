@@ -29,8 +29,8 @@ func newWeightItemRecord(db *gorm.DB, opts ...gen.DOOption) weightItemRecord {
 	_weightItemRecord.ALL = field.NewAsterisk(tableName)
 	_weightItemRecord.Key = field.NewString(tableName, "key")
 	_weightItemRecord.Sid = field.NewString(tableName, "sid")
-	_weightItemRecord.Time = field.NewInt32(tableName, "time")
-	_weightItemRecord.ZeroTimeIn0Tz = field.NewInt32(tableName, "zeroTimeIn0Tz")
+	_weightItemRecord.Time = field.NewInt64(tableName, "time")
+	_weightItemRecord.ZeroTimeIn0Tz = field.NewInt64(tableName, "zeroTimeIn0Tz")
 	_weightItemRecord.Weight = field.NewFloat64(tableName, "weight")
 	_weightItemRecord.Bmi = field.NewFloat64(tableName, "bmi")
 	_weightItemRecord.BodyFatRate = field.NewFloat64(tableName, "bodyFatRate")
@@ -41,11 +41,11 @@ func newWeightItemRecord(db *gorm.DB, opts ...gen.DOOption) weightItemRecord {
 	_weightItemRecord.ProteinRate = field.NewFloat64(tableName, "proteinRate")
 	_weightItemRecord.VisceralFat = field.NewFloat64(tableName, "visceralFat")
 	_weightItemRecord.Value = field.NewString(tableName, "value")
-	_weightItemRecord.ZoneOffsetInSec = field.NewInt32(tableName, "zoneOffsetInSec")
+	_weightItemRecord.ZoneOffsetInSec = field.NewInt64(tableName, "zoneOffsetInSec")
 	_weightItemRecord.ZoneName = field.NewString(tableName, "zoneName")
-	_weightItemRecord.TimeIn0Tz = field.NewInt32(tableName, "timeIn0Tz")
-	_weightItemRecord.IsUpload = field.NewInt32(tableName, "isUpload")
-	_weightItemRecord.IsDeleted = field.NewInt32(tableName, "isDeleted")
+	_weightItemRecord.TimeIn0Tz = field.NewInt64(tableName, "timeIn0Tz")
+	_weightItemRecord.IsUpload = field.NewInt64(tableName, "isUpload")
+	_weightItemRecord.IsDeleted = field.NewInt64(tableName, "isDeleted")
 
 	_weightItemRecord.fillFieldMap()
 
@@ -58,8 +58,8 @@ type weightItemRecord struct {
 	ALL             field.Asterisk
 	Key             field.String
 	Sid             field.String
-	Time            field.Int32
-	ZeroTimeIn0Tz   field.Int32
+	Time            field.Int64
+	ZeroTimeIn0Tz   field.Int64
 	Weight          field.Float64
 	Bmi             field.Float64
 	BodyFatRate     field.Float64
@@ -70,11 +70,11 @@ type weightItemRecord struct {
 	ProteinRate     field.Float64
 	VisceralFat     field.Float64
 	Value           field.String
-	ZoneOffsetInSec field.Int32
+	ZoneOffsetInSec field.Int64
 	ZoneName        field.String
-	TimeIn0Tz       field.Int32
-	IsUpload        field.Int32
-	IsDeleted       field.Int32
+	TimeIn0Tz       field.Int64
+	IsUpload        field.Int64
+	IsDeleted       field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -93,8 +93,8 @@ func (w *weightItemRecord) updateTableName(table string) *weightItemRecord {
 	w.ALL = field.NewAsterisk(table)
 	w.Key = field.NewString(table, "key")
 	w.Sid = field.NewString(table, "sid")
-	w.Time = field.NewInt32(table, "time")
-	w.ZeroTimeIn0Tz = field.NewInt32(table, "zeroTimeIn0Tz")
+	w.Time = field.NewInt64(table, "time")
+	w.ZeroTimeIn0Tz = field.NewInt64(table, "zeroTimeIn0Tz")
 	w.Weight = field.NewFloat64(table, "weight")
 	w.Bmi = field.NewFloat64(table, "bmi")
 	w.BodyFatRate = field.NewFloat64(table, "bodyFatRate")
@@ -105,11 +105,11 @@ func (w *weightItemRecord) updateTableName(table string) *weightItemRecord {
 	w.ProteinRate = field.NewFloat64(table, "proteinRate")
 	w.VisceralFat = field.NewFloat64(table, "visceralFat")
 	w.Value = field.NewString(table, "value")
-	w.ZoneOffsetInSec = field.NewInt32(table, "zoneOffsetInSec")
+	w.ZoneOffsetInSec = field.NewInt64(table, "zoneOffsetInSec")
 	w.ZoneName = field.NewString(table, "zoneName")
-	w.TimeIn0Tz = field.NewInt32(table, "timeIn0Tz")
-	w.IsUpload = field.NewInt32(table, "isUpload")
-	w.IsDeleted = field.NewInt32(table, "isDeleted")
+	w.TimeIn0Tz = field.NewInt64(table, "timeIn0Tz")
+	w.IsUpload = field.NewInt64(table, "isUpload")
+	w.IsDeleted = field.NewInt64(table, "isDeleted")
 
 	w.fillFieldMap()
 

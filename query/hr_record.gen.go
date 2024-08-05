@@ -29,13 +29,13 @@ func newHrRecord(db *gorm.DB, opts ...gen.DOOption) hrRecord {
 	_hrRecord.ALL = field.NewAsterisk(tableName)
 	_hrRecord.Key = field.NewString(tableName, "key")
 	_hrRecord.Sid = field.NewString(tableName, "sid")
-	_hrRecord.Time = field.NewInt32(tableName, "time")
+	_hrRecord.Time = field.NewInt64(tableName, "time")
 	_hrRecord.Value = field.NewString(tableName, "value")
-	_hrRecord.ZoneOffsetInSec = field.NewInt32(tableName, "zoneOffsetInSec")
+	_hrRecord.ZoneOffsetInSec = field.NewInt64(tableName, "zoneOffsetInSec")
 	_hrRecord.ZoneName = field.NewString(tableName, "zoneName")
-	_hrRecord.TimeIn0Tz = field.NewInt32(tableName, "timeIn0Tz")
-	_hrRecord.IsUpload = field.NewInt32(tableName, "isUpload")
-	_hrRecord.IsDeleted = field.NewInt32(tableName, "isDeleted")
+	_hrRecord.TimeIn0Tz = field.NewInt64(tableName, "timeIn0Tz")
+	_hrRecord.IsUpload = field.NewInt64(tableName, "isUpload")
+	_hrRecord.IsDeleted = field.NewInt64(tableName, "isDeleted")
 
 	_hrRecord.fillFieldMap()
 
@@ -48,13 +48,13 @@ type hrRecord struct {
 	ALL             field.Asterisk
 	Key             field.String
 	Sid             field.String
-	Time            field.Int32
+	Time            field.Int64
 	Value           field.String
-	ZoneOffsetInSec field.Int32
+	ZoneOffsetInSec field.Int64
 	ZoneName        field.String
-	TimeIn0Tz       field.Int32
-	IsUpload        field.Int32
-	IsDeleted       field.Int32
+	TimeIn0Tz       field.Int64
+	IsUpload        field.Int64
+	IsDeleted       field.Int64
 
 	fieldMap map[string]field.Expr
 }
@@ -73,13 +73,13 @@ func (h *hrRecord) updateTableName(table string) *hrRecord {
 	h.ALL = field.NewAsterisk(table)
 	h.Key = field.NewString(table, "key")
 	h.Sid = field.NewString(table, "sid")
-	h.Time = field.NewInt32(table, "time")
+	h.Time = field.NewInt64(table, "time")
 	h.Value = field.NewString(table, "value")
-	h.ZoneOffsetInSec = field.NewInt32(table, "zoneOffsetInSec")
+	h.ZoneOffsetInSec = field.NewInt64(table, "zoneOffsetInSec")
 	h.ZoneName = field.NewString(table, "zoneName")
-	h.TimeIn0Tz = field.NewInt32(table, "timeIn0Tz")
-	h.IsUpload = field.NewInt32(table, "isUpload")
-	h.IsDeleted = field.NewInt32(table, "isDeleted")
+	h.TimeIn0Tz = field.NewInt64(table, "timeIn0Tz")
+	h.IsUpload = field.NewInt64(table, "isUpload")
+	h.IsDeleted = field.NewInt64(table, "isDeleted")
 
 	h.fillFieldMap()
 
